@@ -1,11 +1,11 @@
-﻿#### This guide assumes that you have already set up Haveno for your network.
+﻿#### This guide is for Retoswap network only
 ***********************************************
 
-1.  Merge https://github.com/haveno-dex/haveno/commit/fc788c6f646fdfb6bf97493d0368101709867174.
+1. There is a opened PR by atsamd21 https://github.com/retoaccess1/haveno-reto/pull/110 which you need to merge.
 
-    This will allow GitHub actions to automatically build the daemon when a tag is created. 
+2. Then you need to fork the haveno android app https://github.com/atsamd21/Haveno-app
+Then open the Manta.csproj file in a text editor to set it up for Retoswap network.
 
-2. Fork the haveno-app repository and open the Manta.csproj file in a text editor.
 
     | Property              | Value                                 
     |-----------------------|---------------------------------------
