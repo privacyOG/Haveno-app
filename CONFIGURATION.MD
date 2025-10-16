@@ -9,11 +9,11 @@ Then open the Manta.csproj file in a text editor to set it up for Retoswap netwo
 
     | Property              | Value                                 
     |-----------------------|---------------------------------------
-    | ApplicationTitle      | App name shown to the user
-    | ApplicationId         | Change this to com.[SOMETHING], this is the app id that Android uses and not shown to the user
+    | ApplicationTitle      | App name shown to the user: RetoSwap
+    | ApplicationId         | Change this to com.retoswap, this is the app id that Android uses and not shown to the user
     | DaemonUrl             | Url of where the daemon.jar files are hosted. If you're using GitHub actions, use the url of the release that was created
     | Network               | Change this to XMR_MAINNET
-    | HavenoAppName         | Change this to haveno-[SOMETHING], this works the same as the app data directory on desktop
+    | HavenoAppName         | Change this to haveno-reto-mobile, this works the same as the app data directory on desktop
     | MauiIcon              | This is the app icon, you will need to update the SVG icon in Resources/AppIcon, make sure it is named appicon.svg
     | MauiSplashScreen      | This is the splash screen image shown when the app starts, update the SVG in Resources/Splash
 
