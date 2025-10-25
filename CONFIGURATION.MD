@@ -28,7 +28,7 @@ Then open the Manta.csproj file in a text editor to set it up for Retoswap netwo
 
 3. Open the AppConstants.cs file in a text editor and change the ApplicationId string so that it matches the one in Manta.csproj
 
-4. TODO - remote Haveno node
+4. Configure remote Haveno node - https://github.com/atsamd21/Haveno-remote-node
 
 #### Updating the app
 
@@ -39,50 +39,6 @@ The app knows where to get this daemon by checking a URL stored in a configurati
 
 So:
 
-
-🧩 1. The “Daemon”
-
-The app looks at the last installed daemon URL.
-
-It compares it to the one defined in Manta.csproj.
-
-If it’s different, it’ll try to fetch and install the new daemon automatically.
-
-
-⚠️ 2. You Can’t Just Update When Haveno Updates
-
-You can’t just rebuild or update the daemon every time Haveno releases a new version.
-Why? Because Haveno updates might include breaking API changes — meaning the mobile app might no longer work with the updated daemon until the app’s code itself is updated to handle those changes.
-
-So you must wait until:
-
-The app’s code is updated to support the new Haveno version.
-
-Then you can rebuild and release a new daemon.
-
-
-🔨 3. When the App Supports the New Version
-
-Once Manta’s code is updated to match the latest Haveno changes:
-
-Rebuild the daemon.
-
-Create a new release (hosted somewhere, e.g., GitHub or a web server).
-
-Update the DaemonUrl value inside Manta.csproj to point to the new release URL.
-
-Rebuild the mobile app.
-
-
-🔄 4. App Auto-Update Mechanism
-
-When a user installs or updates the app:
-
-It checks the DaemonUrl.
-
-If it’s new, it will automatically download and update the daemon on the device.
-
-So that URL acts like a “trigger” for the app to update its backend.
 
 
 | Step | Action                                        | Purpose                                     |
