@@ -36,7 +36,9 @@ You will need to create a new release/url if updating the daemon since the app w
 
 When the code for the app has been updated to support the latest Haveno version you can build the daemon again and create a new release. Update the url value for DaemonUrl in Manta.csproj. Then the app can be built. Once installed on the device it will automatically fetch the new daemon and update.
 The app knows where to get this daemon by checking a URL stored in a configuration file called Manta.csproj.
+
 So:
+
 
 🧩 1. The “Daemon”
 
@@ -45,6 +47,7 @@ The app looks at the last installed daemon URL.
 It compares it to the one defined in Manta.csproj.
 
 If it’s different, it’ll try to fetch and install the new daemon automatically.
+
 
 ⚠️ 2. You Can’t Just Update When Haveno Updates
 
@@ -56,6 +59,7 @@ So you must wait until:
 The app’s code is updated to support the new Haveno version.
 
 Then you can rebuild and release a new daemon.
+
 
 🔨 3. When the App Supports the New Version
 
@@ -69,6 +73,7 @@ Update the DaemonUrl value inside Manta.csproj to point to the new release URL.
 
 Rebuild the mobile app.
 
+
 🔄 4. App Auto-Update Mechanism
 
 When a user installs or updates the app:
@@ -78,3 +83,13 @@ It checks the DaemonUrl.
 If it’s new, it will automatically download and update the daemon on the device.
 
 So that URL acts like a “trigger” for the app to update its backend.
+
+
+| Step | Action                                        | Purpose                                     |
+| ---- | --------------------------------------------- | ------------------------------------------- |
+| 1    | Don’t update daemon blindly                   | Haveno updates can break compatibility      |
+| 2    | Update app code to support new Haveno version | Avoid crashes or API mismatches             |
+| 3    | Build new daemon & release                    | Publish new backend                         |
+| 4    | Update `DaemonUrl` in `Manta.csproj`          | Point app to new daemon                     |
+| 5    | Rebuild app                                   | Distribute new version; auto-fetches daemon |
+
