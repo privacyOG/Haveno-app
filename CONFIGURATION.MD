@@ -35,3 +35,45 @@ Then open the Manta.csproj file in a text editor to set it up for Retoswap netwo
 You will need to create a new release/url if updating the daemon since the app will compare the last installed url with the one set in Manta.csproj. However, you cannot update just because Haveno updates, there may be breaking changes and so the mobile app will need to be updated to support these changes first.
 
 When the code for the app has been updated to support the latest Haveno version you can build the daemon again and create a new release. Update the url value for DaemonUrl in Manta.csproj. Then the app can be built. Once installed on the device it will automatically fetch the new daemon and update.
+The app knows where to get this daemon by checking a URL stored in a configuration file called Manta.csproj.
+
+So:
+🧩 1. The “Daemon”
+The app looks at the last installed daemon URL.
+
+It compares it to the one defined in Manta.csproj.
+
+If it’s different, it’ll try to fetch and install the new daemon automatically.
+
+⚠️ 2. You Can’t Just Update When Haveno Updates
+
+You can’t just rebuild or update the daemon every time Haveno releases a new version.
+Why? Because Haveno updates might include breaking API changes — meaning the mobile app might no longer work with the updated daemon until the app’s code itself is updated to handle those changes.
+
+So you must wait until:
+
+The app’s code is updated to support the new Haveno version.
+
+Then you can rebuild and release a new daemon.
+
+🔨 3. When the App Supports the New Version
+
+Once Manta’s code is updated to match the latest Haveno changes:
+
+Rebuild the daemon.
+
+Create a new release (hosted somewhere, e.g., GitHub or a web server).
+
+Update the DaemonUrl value inside Manta.csproj to point to the new release URL.
+
+Rebuild the mobile app.
+
+🔄 4. App Auto-Update Mechanism
+
+When a user installs or updates the app:
+
+It checks the DaemonUrl.
+
+If it’s new, it will automatically download and update the daemon on the device.
+
+So that URL acts like a “trigger” for the app to update its backend.
